@@ -8,4 +8,4 @@ from rest_framework.serializers import ModelSerializer
 class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
-        fields = ('id', 'title', 'category', 'name', 'id_number', 'description', 'date_added', 'timestamp', 'location', 'item_type', 'is_claimed', 'report')
+        fields = '__all__'

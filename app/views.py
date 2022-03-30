@@ -51,6 +51,22 @@ def delete_items(request, pk):
     item = get_object_or_404(Item, pk=pk)
     item.delete()
     return Response(status=status.HTTP_202_ACCEPTED)
-  
-    
-    
+
+#Define a function to handle POSTing Items
+
+@api_view(['GET', 'POST'])
+def post_item(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        items = Item.objects.all()
+        serializer = ItemSerializer(items, many =True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = ItemSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

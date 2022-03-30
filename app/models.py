@@ -1,6 +1,6 @@
 from django.db import models
 from django.db import models
-from django.contrib.auth.models import User,AbstractUser
+from django.contrib.auth.models import User
 import uuid
 from django.conf import settings
 
@@ -25,8 +25,9 @@ class Item(models.Model):
     item_type = models.CharField(choices=ItemType.choices, max_length=200)
     
     is_claimed = models.BooleanField(default=False)
+    # claimed_by = models.TextField(blank=True)
     report = models.TextField(blank=True)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
    
     
     def __str__(self):
