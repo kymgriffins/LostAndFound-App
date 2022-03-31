@@ -1,6 +1,6 @@
 from pathlib import Path
 from django.conf import settings
-import django_heroku
+import django_on_heroku
 import os
 from datetime import timedelta
 
@@ -167,9 +167,5 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8080'
 ]
-django_heroku.settings(locals())
+django_on_heroku.settings(locals())
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
