@@ -25,9 +25,10 @@ class Item(models.Model):
     item_type = models.CharField(choices=ItemType.choices, max_length=200)
     
     is_claimed = models.BooleanField(default=False)
-    # claimed_by = models.TextField(blank=True)
+    claimed_by = models.TextField(default=False)
+    is_approved = models.BooleanField(default=False)
     report = models.TextField(blank=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
    
     
     def __str__(self):

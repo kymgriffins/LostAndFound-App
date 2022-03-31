@@ -2,8 +2,16 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import Item
 from .serializers import ItemSerializer
-  
+from django.contrib.auth.models import User
+from .serializers import RegisterSerializer
+from rest_framework import generics
 # Create your views here.
+from rest_framework import status
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    # permission_classes = (AllowAny)
+    serializer_class = RegisterSerializer
 @api_view(['GET'])
 def ApiOverview(request):
     api_urls = {
