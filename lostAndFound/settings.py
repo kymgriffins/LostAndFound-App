@@ -3,7 +3,7 @@ from django.conf import settings
 import django_heroku
 import os
 from datetime import timedelta
-# import django_heroku
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -167,9 +167,9 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:8080'
 ]
-# django_heroku.settings(locals())
+django_heroku.settings(locals())
 
-# try:
-#     from .local_settings import *
-# except ImportError:
-#     pass
+try:
+    from .local_settings import *
+except ImportError:
+    pass
