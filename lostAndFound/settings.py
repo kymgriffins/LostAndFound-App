@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework', # new
     'corsheaders', # new
-    'app',
+    'app.apps.AppConfig',
     'rest_framework_simplejwt', # new
     'rest_framework_simplejwt.token_blacklist',
 ]
@@ -77,6 +77,7 @@ SIMPLE_JWT = {
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhitenoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
