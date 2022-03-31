@@ -42,6 +42,17 @@ export const AuthProvider = ({children}) => {
         localStorage.removeItem('authTokens')
         history.push('/login')
     }
+    let signupUser = async(e)=>{
+        e.preventDefault()
+        let response = await fetch('',{
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({'username':e.target.username.value, 'password':e.target.password.value})
+
+        })
+    }
 
 
     let updateToken = async ()=> {
