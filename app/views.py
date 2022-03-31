@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from .serializers import RegisterSerializer
 from rest_framework import generics
 # Create your views here.
-
+from rest_framework import status
 
 class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
