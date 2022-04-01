@@ -166,10 +166,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CORS_ALLOW_ALL_ORIGINS: True
 CORS_ORIGIN_WHITELIST = [
+    'https://frontendlostfound.herokuapp.com',
     'http://localhost:3000',
     'http://localhost:8080',
-    'https://frontendlostfound.herokuapp.com/',
-    'https://frontendlostfound.herokuapp.com'
+   
 ]
 
 
