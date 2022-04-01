@@ -1,5 +1,5 @@
 
-from django.urls import path , include , url
+from django.urls import path , include 
 from . import views
 from .views import *
 urlpatterns = [
@@ -9,6 +9,5 @@ urlpatterns = [
     path('item/<int:pk>/delete/', views.delete_items, name='delete-items'),
     path('post-item/', views.post_item, name='post-item'),
     path('register/', RegisterView.as_view(), name='auth_register'),
-    url(r'^$', 'path.to.function')
     
 ]
