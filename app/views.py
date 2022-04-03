@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -80,8 +81,18 @@ def post_item(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
  
+# @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
+# def claim_items(self,request, id=None):
+#     item = Item.objects.get(id=id)
+#     serializer = ItemSerializer(item, data=request.data, partial=True)
+#     if serializer.is_valid():
+#         serializer.save()
+#         return Response(serializer.data, status=status.HTTP_201_CREATED)
+#     else:
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    # handle claim individual item
 @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
-def claim_items(self,request, id=None):
+def claim_items(request, id):
     item = Item.objects.get(id=id)
     serializer = ItemSerializer(item, data=request.data, partial=True)
     if serializer.is_valid():
@@ -89,4 +100,3 @@ def claim_items(self,request, id=None):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     else:
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    

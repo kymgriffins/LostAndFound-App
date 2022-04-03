@@ -165,11 +165,19 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 CORS_ALLOW_ALL_ORIGINS: True
-CORS_ORIGIN_WHITELIST = [
-    'https://frontendlostfound.herokuapp.com',
-    'http://localhost:3000',
-    'http://localhost:8080',
+# CORS_ORIGIN_WHITELIST = [
+#     'https://frontendlostfound.herokuapp.com',
+#     'http://localhost:3000',
+#     'http://localhost:8080',
    
-]
+# ]
+#hand;e CORS on all requests
+CORS_ALLOW_ALL_HEADERS = True
+CORS_ALLOW_ALL_HEADERS = True
+CORS_ALLOW_ALL_METHODS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 

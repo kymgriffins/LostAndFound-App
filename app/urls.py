@@ -9,6 +9,7 @@ urlpatterns = [
     path('item/<int:pk>/delete/', views.delete_items, name='delete-items'),
     path('post-item/', views.post_item, name='post-item'),
     path('register/', RegisterView.as_view(), name='auth_register'),
-    path('claim/<int:pk>/', views.claim_items, name='claim-item'),
+    # claim item
+    path('claim/<int:id>/', views.claim_items, name='claim-item'),
     
 ]
